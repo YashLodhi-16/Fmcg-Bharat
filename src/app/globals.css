@@ -2,32 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+::-webkit-scrollbar {
+  width: 0.5rem; /* Equivalent to w-2 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+::-webkit-scrollbar-track {
+  background-color: white; /* Equivalent to bg-white */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f53939; /* Equivalent to bg-red-600 */
+  border-radius: 0.25rem; /* Equivalent to rounded */
+}
+
+@layer components {
+  .hover-link {
+    @apply relative before:content-[""] before:absolute before:-bottom-px before:left-0 before:transition-all before:ease-in before:duration-200 before:w-full before:h-0.5 before:bg-red-400 before:scale-x-0 hover:before:scale-x-100 before:rounded;
+  }
+
+  .card-btn {
+    @apply rounded capitalize hover:scale-110 transition-all duration-300 ease-in-out;
+  }
+
+  .default-btn {
+    @apply card-btn bg-gray-600 px-4 py-2;
+  }
+
+  .input-bar {
+    @apply px-4 py-3 border-2 border-solid border-gray-500 rounded group-focus-within:border-none group-focus-within:outline-blue-500 group-focus-within:outline group-focus-within:outline-2;
+  }
+
+  .footer-links li > a:not(.social-media li > a) {
+    @apply hover-link;
+  }
+
+  .social-media li:not(li:first-child) {
+    @apply hover:bg-white transition-all duration-300 ease-in rounded inline-block pr-2 w-auto;
+  }
+  .social-media li:hover a {
+    @apply text-black;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .main-heading > span {
+    display: block;
+    &:last-child {
+      line-height: 1;
+    }
+  }
+  .footer-heading {
+    @apply text-zinc-900 mb-4 text-lg font-semibold;
+  }
+
+  .footer-icon-images {
+    @apply inline-block bg-white w-6;
+  }
+
+  .scroll-bar-hidden {
+    scrollbar-width: none;
   }
 }

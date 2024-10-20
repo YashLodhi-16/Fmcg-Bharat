@@ -1,0 +1,14 @@
+.legal-container {
+  & ul {
+    @apply pl-8 list-disc flex flex-col gap-4;
+  }
+  & h2 {
+    @apply text-2xl font-semibold text-teal-500;
+  }
+  & h3 {
+    @apply text-xl font-semibold text-slate-950;
+  }
+  & h4 {
+    @apply text-lg font-semibold text-slate-800;
+  }
+}

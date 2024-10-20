@@ -1,113 +1,426 @@
-import Image from "next/image";
+// all import statements
+import ImageSlider from "@/components/tsx/ImageSlider";
+import BasicLayout from "@/components/tsx/BasicLayout";
+import InfoArticle from "@/components/tsx/InfoArticle";
+import Features from "@/components/tsx/Features";
+import Testimonials from "@/components/tsx/Testimonials";
+import ProductSlider from "@/components/tsx/ProductSlider";
+import Search from "@/components/tsx/Search";
+import Link from "next/link";
+import Main from "@/components/tsx/Main";
+import { FeatureDetails } from "@/lib/interfaces/Feature";
+import { Review } from "@/lib/interfaces/Review";
+import Summary from "@/components/tsx/Summary";
+import { BaseProduct } from "@/lib/interfaces/Product";
+import ProductCard from "@/components/tsx/ProductCard";
+import CardsHolder from "@/components/tsx/CardsHolder";
 
-export default function Home() {
+// page - home
+export default async function Home() {
+  // image slider links
+  const images: string[] = [
+    "https://res.cloudinary.com/dblq992uw/image/upload/v1729089691/Public/slider/lg/first-slider_eewvx3.png",
+    "https://res.cloudinary.com/dblq992uw/image/upload/v1729089692/Public/slider/lg/second-slider_lv7iaf.png",
+    "https://res.cloudinary.com/dblq992uw/image/upload/v1729089694/Public/slider/lg/three-slider_woq4rv.png",
+    "https://res.cloudinary.com/dblq992uw/image/upload/v1729089696/Public/slider/lg/four-slider_bnxjkt.png",
+    "https://res.cloudinary.com/dblq992uw/image/upload/v1729089688/Public/slider/lg/five-slider_pygkx8.png",
+    "https://res.cloudinary.com/dblq992uw/image/upload/v1729089688/Public/slider/lg/six-slider_w0o1rr.png",
+  ];
+
+  // data for info article
+  const paragraph: string[] = [
+    "FMCG Bharat is an emerging e-commerce platform dedicated to providing a wide range of fast-moving consumer goods (FMCG) to customers across India. With a focus on quality, affordability, and convenience, FMCG Bharat aims to simplify shopping by offering products from trusted brands in categories such as groceries, personal care, household items, and more. ",
+    "Committed to serving the diverse needs of Indian consumers, FMCG Bharat is designed to make online shopping accessible and reliable. Through an easy-to-navigate website and a growing product range, it caters to urban and rural customers alike. ",
+  ];
+
+  // const res = await fetch(
+  //   `${process.env.NEXT_PUBLIC_DEV_API}/api/products/top-products`,
+  //   {
+  //     method: "GET",
+  //   }
+  // );
+  // const { products } = await res.json();
+  // const temp = Array.from({ length: 8 }, (_, index) => products[0]);
+
+  // features
+  const featuresData: FeatureDetails[] = [
+    {
+      logo: "https://res.cloudinary.com/dblq992uw/image/upload/v1729353231/Public/icons/home/icon-1_knd7t5.png",
+      heading: "free shiping",
+      paragraph: "from all orders over &#8377;1500",
+    },
+    {
+      logo: "https://res.cloudinary.com/dblq992uw/image/upload/v1729353280/Public/icons/home/icon-2_iawdtc.png",
+      heading: "free return policy",
+      paragraph: "retun money within 30 days",
+    },
+    {
+      logo: "https://res.cloudinary.com/dblq992uw/image/upload/v1729353295/Public/icons/home/icon-3_zkcsjr.png",
+      heading: "secure shopping",
+      paragraph: "youre in safe hands",
+    },
+    {
+      logo: "https://res.cloudinary.com/dblq992uw/image/upload/v1729353307/Public/icons/home/icon-4_kcijlc.png",
+      heading: "more than 100+ products",
+      paragraph: "we have everything you need",
+    },
+  ];
+
+  // testimonials
+  const reviews: Review[] = [
+    {
+      review:
+        "I love shopping at FMCG Bharat! The selection of products is impressive, and I can find everything I need in one place. Fast delivery and great customer service make the experience even better!",
+      user: {
+        logo: "https://randomuser.me/api/portraits/men/47.jpg",
+        username: "virat",
+      },
+      length: 5,
+    },
+    {
+      review:
+        "FMCG Bharat offers fantastic deals on everyday essentials. I appreciate the competitive prices and special discounts on bulk purchases. It's my go-to site for grocery shopping!",
+      user: {
+        logo: "https://randomuser.me/api/portraits/men/48.jpg",
+        username: "himanshu",
+      },
+      length: 4,
+    },
+    {
+      review:
+        "The website is easy to navigate, and the checkout process is seamless. I appreciate the detailed product descriptions and images. Shopping has never been easier!",
+      user: {
+        logo: "https://randomuser.me/api/portraits/men/49.jpg",
+        username: "mohan",
+      },
+      length: 5,
+    },
+    {
+      review:
+        "FMCG Bharat has been my go-to platform for all my household needs. The product selection is fantastic, and delivery is always prompt.",
+      user: {
+        logo: "https://randomuser.me/api/portraits/women/50.jpg",
+        username: "sonali",
+      },
+      length: 5,
+    },
+  ];
+
+  // product slider instance - 1
+  const laptop: BaseProduct[] = [
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/41n6UmDhUAL._SR480,440_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      discount: 10,
+      actualPrice: 15000,
+      name: "lenevo think pad",
+      id: "0",
+      currentPrice: 13500,
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/51+U6oOCx4L._SR480,440_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "1",
+      discount: 20,
+      actualPrice: 25000,
+      name: "lenevo think pad pro",
+      currentPrice: 20000,
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/41Bmui2T3TL._SR480,440_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "2",
+      currentPrice: 10000,
+
+      discount: 0,
+      actualPrice: 10000,
+      name: "acer aspire lite",
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/41kL568TQRL._SR480,440_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "4",
+      discount: 50,
+      actualPrice: 50000,
+      currentPrice: 25000,
+      name: "msi gaming laptop",
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/41Zqi0HTGrL._SR480,440_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 60,
+      actualPrice: 75000,
+      currentPrice: 30000,
+      name: "asus tuf f15",
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/41iiFgYZkZL._SR480,440_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 70,
+      currentPrice: 30000,
+      actualPrice: 100000,
+      name: "mac book",
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/41Aw8+krn+L._SR480,440_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 25,
+      actualPrice: 75000,
+      currentPrice: 56250,
+      name: "hp deluxe",
+    },
+  ];
+
+  // product slider instance - 2
+  const mobile: BaseProduct[] = [
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/71xNcjUwEfL._AC_UY327_FMwebp_QL65_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 12,
+      actualPrice: 22999,
+      name: "agni 3 5g",
+      currentPrice: 20239,
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/81scQ7qlPuL._AC_UY327_FMwebp_QL65_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 23,
+      actualPrice: 13000,
+      name: "tecno pop 9 5g",
+      currentPrice: 10010,
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/81T3olLXpUL._AC_UY327_FMwebp_QL65_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 29,
+      actualPrice: 17000,
+      name: "samsung galaxy m15",
+      currentPrice: 12070,
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/71r0Ysx+oVL._AC_UY327_FMwebp_QL65_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 23,
+      actualPrice: 11000,
+      name: "realme narzo n61",
+      currentPrice: 8470,
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/71EN6N9kUEL._AC_UY327_FMwebp_QL65_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 23,
+      actualPrice: 11000,
+      name: "realme narzo n61",
+      currentPrice: 8470,
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/51Zjp5fq1EL._AC_UY327_FMwebp_QL65_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 35,
+      actualPrice: 11000,
+      name: "poco c65",
+      currentPrice: 7150,
+    },
+    {
+      colorImages: [
+        {
+          url: [
+            "https://m.media-amazon.com/images/I/71scmEdSC2L._AC_UY327_FMwebp_QL65_.jpg",
+          ],
+          color: "black",
+        },
+      ],
+      id: "5",
+      discount: 39,
+      actualPrice: 14000,
+      name: "redmi 13c",
+      currentPrice: 8540,
+    },
+  ];
+
+  const products = [...laptop.slice(0, 4), ...mobile.slice(0, 4)];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="">
+      {/* hero section */}
+      <Main
+        href="/products"
+        link="see products"
+        src="https://res.cloudinary.com/dblq992uw/image/upload/v1729161520/Public/hero-images/main_tr30gn.png"
+        paragraph="FMCG Bharat makes online shopping effortless, bringing the best
+              products to your door at unbeatable prices. Explore hundreds of
+              products with ease, from trusted brands you love."
+        key={1}
+      >
+        <span className="block">
+          fmcg <span className="text-teal-500">bharat</span>
+        </span>
+        <span>you shop, we deliver</span>
+        <Link href="/blogs" className="text-blue-600">
+          See how fmcg bharat works &nbsp;{">"}
+        </Link>
+      </Main>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      {/* image slider */}
+      <BasicLayout paddingTop={false}>
+        <ImageSlider images={images} autoScroll={true} key={0} />
+      </BasicLayout>
+
+      {/* image slider */}
+      <BasicLayout paddingTop={false}>
+        <InfoArticle
+          heading="Breif about fmcg Bharat"
+          paragraph={paragraph}
+          imageAlt="main-logo"
+          imageSrc={process.env.NEXT_PUBLIC_MAIN_ICON}
         />
-      </div>
+      </BasicLayout>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      {/* top products */}
+      <BasicLayout paddingTop={false}>
+        <Summary heading="Top Products" paragraph="some of the top products" />
+        <CardsHolder>
+          {products?.map((value: BaseProduct, index: number) => {
+            const {
+              actualPrice,
+              colorImages,
+              currentPrice,
+              discount,
+              id,
+              name,
+            } = value;
+            return (
+              <ProductCard
+                actualPrice={actualPrice}
+                colorImages={colorImages}
+                currentPrice={currentPrice}
+                discount={discount}
+                id={id}
+                name={name}
+                key={index}
+              />
+            );
+          })}
+        </CardsHolder>
+      </BasicLayout>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      {/* laptop slider */}
+      <BasicLayout paddingTop={false}>
+        <Summary heading="deals on laptops" paragraph="" />
+        <ProductSlider products={laptop} />
+      </BasicLayout>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      {/* mobile slider */}
+      <BasicLayout paddingTop={false}>
+        <Summary heading="deals on mobile" paragraph="" />
+        <ProductSlider products={mobile} />
+      </BasicLayout>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      {/* search */}
+      <BasicLayout paddingTop={false}>
+        <Search />
+      </BasicLayout>
+
+      {/* Testimonials */}
+      <BasicLayout paddingTop={false}>
+        <Summary
+          heading="testimonials"
+          paragraph="Real stories from satisfied customers."
+        />
+        <Testimonials reviews={reviews} />
+      </BasicLayout>
+
+      {/* features */}
+      <BasicLayout paddingTop={false}>
+        <Summary heading="our features" paragraph="some of the main features" />
+        <Features featuresData={featuresData} />
+      </BasicLayout>
+    </div>
   );
 }

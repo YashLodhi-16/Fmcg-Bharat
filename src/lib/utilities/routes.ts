@@ -1,0 +1,15 @@
+export const contact = "/contact",
+  about = "/about",
+  home = "/",
+  blogs = "/blogs",
+  brands = "/brands",
+  termsAndConditions = "/terms-and-conditions",
+  privacyAndPolicy = "/privacy-and-policy",
+  returnAndRefund = "/return-and-refund",
+  instagram =
+    "https://www.instagram.com/fmcgbharat?igsh=MWlzbms1eXYxaHMxcw%3D%3D",
+  facebook = "https://www.facebook.com/people/fmcgbharat/61554856080466/",
+  youtube = "https://www.youtube.com/@fmcgbharat",
+  feedback = "/feedback",
+  products = "/products",
+  cart = "/cart";
