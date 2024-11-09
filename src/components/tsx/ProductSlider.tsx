@@ -76,7 +76,7 @@ const ProductSlider = (props: { products: BaseProduct[] }) => {
               colorImages,
               currentPrice,
               discount,
-              id,
+              _id,
               name,
             } = value;
             return (
@@ -85,7 +85,7 @@ const ProductSlider = (props: { products: BaseProduct[] }) => {
                 colorImages={colorImages}
                 currentPrice={currentPrice}
                 discount={discount}
-                id={id}
+                _id={_id}
                 name={name}
                 key={index}
               />

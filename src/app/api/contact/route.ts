@@ -10,10 +10,10 @@ import sendEmails from "@/lib/utilities/sendEmails";
 
 export async function POST(request: NextRequest, response: NextResponse) {
   try {
-    const { CONTACT_FORM_EMAIL, EMAIL } = process.env;
+    const { CONTACT_FORM_EMAIL, NEXT_PUBLIC_EMAIL } = process.env;
     const data = await request.json();
     const { name, email, message } = data;
-    if (!EMAIL || !CONTACT_FORM_EMAIL) {
+    if (!NEXT_PUBLIC_EMAIL || !CONTACT_FORM_EMAIL) {
       return NextResponse.json(
         { error: "Environmental Variable's Missing" },
         { status: 500 }
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     messageChecker.parse(message);
 
     const from = `Contact Form <${CONTACT_FORM_EMAIL}>`,
-      to = EMAIL,
+      to = NEXT_PUBLIC_EMAIL,
       html = contactTemplate({ name, email, message });
     const info = await sendEmails(from, to, "Contact Form", html);
 

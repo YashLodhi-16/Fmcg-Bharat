@@ -137,9 +137,10 @@ const Footer = () => {
             <>
               <Image
                 src={process.env.NEXT_PUBLIC_SIDE_ICON || ""}
-                width={100}
-                height={100}
+                width={800}
+                height={800}
                 alt="main logo"
+                className="w-32 h-auto"
               />
             </>
           ),

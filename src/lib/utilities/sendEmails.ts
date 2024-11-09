@@ -4,12 +4,14 @@ import nodemailer, {
   SendMailOptions,
   SentMessageInfo,
 } from "nodemailer";
+import { Attachment } from "nodemailer/lib/mailer";
 
 const sendEmails = function (
   from: string,
   to: string | string[],
   subject: string,
-  html: string
+  html: string,
+  attachments?: Attachment[]
 ): Promise<SentMessageInfo> {
   return new Promise<SentMessageInfo>(async (resolve, reject) => {
     // try and catch block to avoid error's
@@ -24,8 +26,8 @@ const sendEmails = function (
       }
 
       // if any of these are not provided then throw a error
-      const { HOST, EMAIL, PASS } = process.env;
-      if (!HOST || !EMAIL || !PASS) {
+      const { HOST, NEXT_PUBLIC_EMAIL, PASS } = process.env;
+      if (!HOST || !NEXT_PUBLIC_EMAIL || !PASS) {
         reject(
           new Error("Host Or EMAIL Or Pass, Any Of These Are Not Provided...")
         );
@@ -37,7 +39,7 @@ const sendEmails = function (
         port: 465,
         secure: true,
         auth: {
-          user: EMAIL,
+          user: NEXT_PUBLIC_EMAIL,
           pass: PASS,
         },
       });
@@ -49,6 +51,10 @@ const sendEmails = function (
         subject,
         html,
       };
+
+      if (attachments) {
+        mailOptions.attachments = attachments;
+      }
 
       // send an email using promise to get its response value
       const sendEmail = new Promise<SentMessageInfo>((resolve, reject) => {

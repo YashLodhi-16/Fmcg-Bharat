@@ -14,6 +14,7 @@ import Summary from "@/components/tsx/Summary";
 import { BaseProduct } from "@/lib/interfaces/Product";
 import ProductCard from "@/components/tsx/ProductCard";
 import CardsHolder from "@/components/tsx/CardsHolder";
+import ProductsWrapper from "@/components/tsx/ProductsWrapper";
 
 // page - home
 export default async function Home() {
@@ -115,13 +116,14 @@ export default async function Home() {
             "https://m.media-amazon.com/images/I/41n6UmDhUAL._SR480,440_.jpg",
           ],
           color: "black",
+          colorCode: "#000000",
         },
       ],
       discount: 10,
-      actualPrice: 15000,
-      name: "lenevo think pad",
-      id: "0",
-      currentPrice: 13500,
+      actualPrice: 40000,
+      name: "lenevo idea pad",
+      _id: "0",
+      currentPrice: 33500,
     },
     {
       colorImages: [
@@ -129,14 +131,15 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/51+U6oOCx4L._SR480,440_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "1",
+      _id: "1",
       discount: 20,
-      actualPrice: 25000,
-      name: "lenevo think pad pro",
-      currentPrice: 20000,
+      actualPrice: 45000,
+      name: "lenevo loq",
+      currentPrice: 40000,
     },
     {
       colorImages: [
@@ -144,14 +147,15 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/41Bmui2T3TL._SR480,440_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "2",
-      currentPrice: 10000,
+      _id: "2",
+      currentPrice: 30000,
 
       discount: 0,
-      actualPrice: 10000,
+      actualPrice: 20000,
       name: "acer aspire lite",
     },
     {
@@ -160,14 +164,15 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/41kL568TQRL._SR480,440_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "4",
+      _id: "4",
       discount: 50,
-      actualPrice: 50000,
-      currentPrice: 25000,
-      name: "msi gaming laptop",
+      actualPrice: 45000,
+      currentPrice: 38000,
+      name: "hp blacklite",
     },
     {
       colorImages: [
@@ -175,14 +180,15 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/41Zqi0HTGrL._SR480,440_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 60,
       actualPrice: 75000,
-      currentPrice: 30000,
-      name: "asus tuf f15",
+      currentPrice: 60000,
+      name: "hp victus",
     },
     {
       colorImages: [
@@ -190,14 +196,15 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/41iiFgYZkZL._SR480,440_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 70,
       currentPrice: 30000,
       actualPrice: 100000,
-      name: "mac book",
+      name: "dell insprion",
     },
     {
       colorImages: [
@@ -205,14 +212,15 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/41Aw8+krn+L._SR480,440_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 25,
       actualPrice: 75000,
       currentPrice: 56250,
-      name: "hp deluxe",
+      name: "asus tuf f15",
     },
   ];
 
@@ -225,9 +233,10 @@ export default async function Home() {
             "https://m.media-amazon.com/images/I/71xNcjUwEfL._AC_UY327_FMwebp_QL65_.jpg",
           ],
           color: "black",
+          colorCode: "#000000",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 12,
       actualPrice: 22999,
       name: "agni 3 5g",
@@ -239,10 +248,11 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/81scQ7qlPuL._AC_UY327_FMwebp_QL65_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 23,
       actualPrice: 13000,
       name: "tecno pop 9 5g",
@@ -254,10 +264,11 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/81T3olLXpUL._AC_UY327_FMwebp_QL65_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 29,
       actualPrice: 17000,
       name: "samsung galaxy m15",
@@ -269,10 +280,11 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/71r0Ysx+oVL._AC_UY327_FMwebp_QL65_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 23,
       actualPrice: 11000,
       name: "realme narzo n61",
@@ -284,10 +296,11 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/71EN6N9kUEL._AC_UY327_FMwebp_QL65_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 23,
       actualPrice: 11000,
       name: "realme narzo n61",
@@ -299,10 +312,11 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/51Zjp5fq1EL._AC_UY327_FMwebp_QL65_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 35,
       actualPrice: 11000,
       name: "poco c65",
@@ -314,10 +328,11 @@ export default async function Home() {
           url: [
             "https://m.media-amazon.com/images/I/71scmEdSC2L._AC_UY327_FMwebp_QL65_.jpg",
           ],
+          colorCode: "#000000",
           color: "black",
         },
       ],
-      id: "5",
+      _id: "5",
       discount: 39,
       actualPrice: 14000,
       name: "redmi 13c",
@@ -325,7 +340,6 @@ export default async function Home() {
     },
   ];
 
-  const products = [...laptop.slice(0, 4), ...mobile.slice(0, 4)];
   return (
     <div className="">
       {/* hero section */}
@@ -365,29 +379,7 @@ export default async function Home() {
       {/* top products */}
       <BasicLayout paddingTop={false}>
         <Summary heading="Top Products" paragraph="some of the top products" />
-        <CardsHolder>
-          {products?.map((value: BaseProduct, index: number) => {
-            const {
-              actualPrice,
-              colorImages,
-              currentPrice,
-              discount,
-              id,
-              name,
-            } = value;
-            return (
-              <ProductCard
-                actualPrice={actualPrice}
-                colorImages={colorImages}
-                currentPrice={currentPrice}
-                discount={discount}
-                id={id}
-                name={name}
-                key={index}
-              />
-            );
-          })}
-        </CardsHolder>
+        <ProductsWrapper />
       </BasicLayout>
 
       {/* laptop slider */}

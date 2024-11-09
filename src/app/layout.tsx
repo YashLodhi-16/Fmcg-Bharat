@@ -6,6 +6,7 @@ import Footer from "@/components/tsx/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { title } from "@/lib/utilities/variables";
+import StoreProvider from "./StoreProvider";
 config.autoAddCss = false;
 
 // meta data for the website
@@ -60,12 +61,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="capitalize bg-gray-50">
+      <body className="capitalize bg-gray-50 relative scroll-smooth h-svh md:h-vh">
         {/* navbar and footer  */}
         {/* are the most important component for every page so i add them to layout directly.
          */}
         <Navbar />
-        {children}
+        <StoreProvider>{children}</StoreProvider>
         <Footer />
       </body>
     </html>

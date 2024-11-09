@@ -12,4 +12,5 @@ export const contact = "/contact",
   youtube = "https://www.youtube.com/@fmcgbharat",
   feedback = "/feedback",
   products = "/products",
-  cart = "/cart";
+  cart = "/cart",
+  category = "/category";

@@ -12,6 +12,7 @@ import {
   InputFieldsDetails,
   Page,
 } from "@/lib/interfaces/Form";
+import { environment } from "@/lib/utilities/variables";
 
 // extends page interface so i can pass state and input fields data to component.
 interface FormPage extends Page {
@@ -36,7 +37,7 @@ const Form = (props: FormPage) => {
     // prevent page reload
     e.preventDefault();
     // post request
-    const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_API}/api/${api}`, {
+    const res = await fetch(`${environment}/api/${api}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,9 +76,7 @@ const Form = (props: FormPage) => {
 
           {/* second data section */}
           <div className="">
-            <h3 className="text-2xl font-semibold normal-case">
-              {secondSection.heading}
-            </h3>
+            <h3 className="text-2xl font-semibold">{secondSection.heading}</h3>
             <Link
               href={secondSection.heading}
               className="font-semibold text-teal-500"

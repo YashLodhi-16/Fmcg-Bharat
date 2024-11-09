@@ -1,12 +1,16 @@
 import React from "react";
 import "../css/legalContainer.css";
 import Link from "next/link";
+import { contact } from "@/lib/utilities/routes";
 
 const ReturnAndRefund = () => {
+  if (!process.env.NEXT_PUBLIC_EMAIL || !process.env.NEXT_PUBLIC_PRO_API) {
+    throw new Error("Missing Necessary Environmental Variables.");
+  }
   return (
     <>
       <h2>Return and Refund Policy</h2>
-      <p>Last updated: October 04, 2024</p>
+      <p>Last updated: November 08, 2024</p>
       <p>Thank you for shopping at fmcg bharat.</p>
       <p>
         If, for any reason, You are not completely satisfied with a purchase We
@@ -31,8 +35,7 @@ const ReturnAndRefund = () => {
           <p>
             <span className="font-semibold">Company</span> (referred to as
             either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or
-            &quot;Our&quot; in this Agreement) refers to fmcg bharat, a-832,
-            sangam vihar, south delhi.
+            &quot;Our&quot; in this Agreement) refers to fmcg bharat.
           </p>
         </li>
         <li>
@@ -58,10 +61,10 @@ const ReturnAndRefund = () => {
             <span className="font-semibold">Website</span> refers to fmcg
             bharat, accessible from{" "}
             <Link
-              href="https://www.fmcgbharat.com"
+              href={process.env.NEXT_PUBLIC_PRO_API}
               className="hover-link text-blue-600 normal-case"
             >
-              https://www.fmcgbharat.com
+              {process.env.NEXT_PUBLIC_PRO_API}
             </Link>
           </p>
         </li>
@@ -74,50 +77,44 @@ const ReturnAndRefund = () => {
           </p>
         </li>
       </ul>
-      <h2>Your Order Cancellation Rights</h2>
+      <h2>Your Order return Rights</h2>
       <p>
-        You are entitled to cancel Your Order within 14 days without giving any
-        reason for doing so.
+        You are entitled to return Your Order within 14 days with a proper
+        reason.
       </p>
       <p>
-        The deadline for cancelling an Order is 14 days from the date on which
+        The deadline for returning an Order is 14 days from the date on which
         You received the Goods or on which a third party you have appointed, who
         is not the carrier, takes possession of the product delivered.
       </p>
       <p>
-        In order to exercise Your right of cancellation, You must inform Us of
-        your decision by means of a clear statement. You can inform us of your
+        In order to exercise Your right of return, You must inform Us of your
+        decision by means of a clear statement. You can inform us of your
         decision by:
       </p>
       <ul>
         <li>
           by email:{" "}
           <Link
-            href="mailto:contact@fmcgbharat.com"
+            href={"mailto:" + process.env.NEXT_PUBLIC_EMAIL}
             className="hover-link normal-case text-blue-600"
           >
-            contact@fmcgbharat.com
+            {process.env.NEXT_PUBLIC_EMAIL}
           </Link>
         </li>
         <li>
           <p>
             By visiting this page on our website:{" "}
             <Link
-              href="https://www.fmcgbharat.com/contact"
+              href={process.env.NEXT_PUBLIC_PRO_API}
               className="hover-link normal-case text-blue-600"
             >
-              https://www.fmcgbharat.com/contact
+              {process.env.NEXT_PUBLIC_PRO_API + contact}
             </Link>
           </p>
         </li>
       </ul>
-      <p>
-        We will reimburse You no later than 14 days from the day on which We
-        receive the returned Goods. We will use the same means of payment as You
-        used for the Order, and You will not incur any fees for such
-        reimbursement.
-      </p>
-      <h2>Conditions for Returns</h2>
+      <h2>eligibility for Returns</h2>
       <p>
         In order for the Goods to be eligible for a return, please make sure
         that:
@@ -139,7 +136,7 @@ const ReturnAndRefund = () => {
         </li>
         <li>
           The supply of Goods which are not suitable for return due to health
-          protection or hygiene reasons and were unsealed after delivery.
+          protection or hygiene reasons.
         </li>
         <li>
           The supply of Goods which are, after delivery, according to their
@@ -152,60 +149,50 @@ const ReturnAndRefund = () => {
       </p>
       <p>
         Only regular priced Goods may be refunded. Unfortunately, Goods on sale
-        cannot be refunded. This exclusion may not apply to You if it is not
-        permitted by applicable law.
+        cannot be refunded but only replaceable.
       </p>
-      <h2>Returning Goods</h2>
+      <h2>Return process</h2>
+
       <p>
-        You are responsible for the cost and risk of returning the Goods to Us.
-        You should send the Goods at the following address:
-      </p>
-      <p>a-832, sangam vihar, south delhi</p>
-      <p>
-        We cannot be held responsible for Goods damaged or lost in return
-        shipment. Therefore, We recommend an insured and trackable mail service.
-        We are unable to issue a refund without actual receipt of the Goods or
-        proof of received return delivery.
-      </p>
-      <h2>Gifts</h2>
-      <p>
-        If the Goods were marked as a gift when purchased and then shipped
-        directly to you, You&#39;ll receive a gift credit for the value of your
-        return. Once the returned product is received, a gift certificate will
-        be mailed to You.
+        To initiate a return, please contact our customer support team via email
+        with your order number and reason for return.
       </p>
       <p>
-        If the Goods weren&#39;t marked as a gift when purchased, or the gift
-        giver had the Order shipped to themselves to give it to You later, We
-        will send the refund to the gift giver.
+        Once the return is approved,
+        <span className="normal-case"> We&quot;ll</span> provide instructions.
+        Items must be shipped within 14 days of approval to be eligible for a
+        refund.
       </p>
-      <h3>Contact Us</h3>
+
+      <h2>refund policy</h2>
       <p>
-        If you have any questions about our Returns and Refunds Policy, please
-        contact us:
+        Upon receiving and inspecting the returned item, we will process your
+        refund within 7-10 business days.
       </p>
-      <ul>
-        <li>
-          by email:{" "}
-          <Link
-            href="mailto:contact@fmcgbharat.com"
-            className="hover-link normal-case text-blue-600"
-          >
-            contact@fmcgbharat.com
-          </Link>
-        </li>
-        <li>
-          <p>
-            By visiting this page on our website:{" "}
-            <Link
-              href="https://www.fmcgbharat.com"
-              className="hover-link normal-case text-blue-600"
-            >
-              https://www.fmcgbharat.com
-            </Link>
-          </p>
-        </li>
-      </ul>
+      <p>
+        Refunds will be issued to the original payment method. In case of any
+        delays, please contact your payment provider.
+      </p>
+      <p>
+        Shipping fees are non-refundable unless the return is due to a defect or
+        error on our part.
+      </p>
+
+      <h2>Damaged or Defective Items</h2>
+      <p>
+        If you receive a damaged or defective item, please notify us within 48
+        hours of delivery with photos of the damage.
+      </p>
+      <p>
+        <span className="normal-case"> We&quot;ll</span> offer a replacement or
+        full refund, including shipping costs, for defective or damaged items.
+      </p>
+
+      <p className="font-semibold text-xl mt-4">
+        At FMCG Bharat, we aim to make your gift-giving experience smooth and
+        delightful. If, however, you encounter any issues, our return and refund
+        policy will help ensure your satisfaction.
+      </p>
     </>
   );
 };

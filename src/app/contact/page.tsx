@@ -34,7 +34,7 @@ export default function Contact() {
       link: "040-67607600",
       href: "tel:040-67607600",
       heading: "call us",
-      paragraph: "monday to saturday 10:00 am - 6:00 pm.",
+      paragraph: "monday to saturday 10:00 am - 6:00 pm",
     },
     api: "contact",
     bottomPosition: "md:translate-y-1/4",

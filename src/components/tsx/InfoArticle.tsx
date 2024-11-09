@@ -48,7 +48,7 @@ const InfoArticle = (props: Article) => {
         <div className="flex justify-center items-center col-span-1 group">
           {/* using typscript non null assertion to tell him that imageSrc and imageAlt are not define is this block */}
           <Image
-            className="w-36 group-hover:rotateY-180 transition-all duration-1000 ease-in-out"
+            className="w-36 shadow-xl"
             src={imageSrc!}
             width={250}
             height={250}

@@ -82,7 +82,7 @@ export default function About() {
       href: "/cart",
       heading: "make payment.",
       paragraph:
-        "fill up basic details like address, email and phone number. make payment with the way to feel best like UPI, debit / credit card.",
+        "fill up basic details like address, email and phone number. make payment with the way to feel best like UPI, debit / credit card etc.",
       className: "mb-8 md:flex-row",
     },
     {

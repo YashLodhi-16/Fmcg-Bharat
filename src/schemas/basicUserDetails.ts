@@ -7,3 +7,5 @@ export const emailChecker: ZodString = z.string().trim().email();
 export const messageChecker: ZodString = z.string().trim().min(25).max(200);
 export const subjectChecker: ZodString = z.string().trim().min(10).max(100);
 export const ageChecker: ZodNumber = z.number().gte(18);
+
+export const pinCodeChecker: ZodString = z.string().length(6);

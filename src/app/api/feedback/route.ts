@@ -13,11 +13,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
-    const { EMAIL, FEEDBACK_FORM_EMAIL } = process.env;
+    const { NEXT_PUBLIC_EMAIL, FEEDBACK_FORM_EMAIL } = process.env;
     const data: FeedbackForm = await req.json();
     const { name, subject, email, message } = data;
 
-    if (!EMAIL || !FEEDBACK_FORM_EMAIL) {
+    if (!NEXT_PUBLIC_EMAIL || !FEEDBACK_FORM_EMAIL) {
       return NextResponse.json(
         { error: "Environmental Variable's Missing" },
         { status: 500 }
@@ -36,7 +36,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     subjectChecker.parse(subject);
 
     const from = `"Feedback Form" <${FEEDBACK_FORM_EMAIL}>`,
-      to = EMAIL,
+      to = NEXT_PUBLIC_EMAIL,
       html = feedbackTemplate(data);
 
     const info = await sendEmails(from, to, subject, html);
