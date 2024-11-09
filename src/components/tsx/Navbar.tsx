@@ -93,7 +93,7 @@ const Navbar = () => {
           const { name, url, icon } = item;
 
           if (pathname === products) {
-            if (pathname === "/" + name || name === "home") {
+            if (cart === "/" + name || name === "home") {
               return (
                 <li
                   key={index}

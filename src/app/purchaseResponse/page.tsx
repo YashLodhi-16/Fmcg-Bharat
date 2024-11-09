@@ -25,6 +25,7 @@ const PurchaseResponse = () => {
   const [timeoutCounter, setTimeoutCounter] = useState<number>(timerSeconds);
   const cartProducts = useSelector((state: RootState) => state.cartProducts);
   const dispatch = useDispatch();
+  const [emailSent, setEmailSent] = useState<boolean>(false);
 
   useEffect(() => {
     const bothPresent = Boolean(amount && errorMessage);
@@ -94,8 +95,11 @@ const PurchaseResponse = () => {
           "There was an Error while Sending invoice to your Email, please Contact Us."
         );
       }
+      setEmailSent(true);
     };
-    sendEmail();
+    if (!emailSent) {
+      sendEmail();
+    }
   }, [
     dispatch,
     amount,
@@ -105,6 +109,7 @@ const PurchaseResponse = () => {
     lastName,
     orderDate,
     orderId,
+    emailSent,
     useremail,
   ]);
 
