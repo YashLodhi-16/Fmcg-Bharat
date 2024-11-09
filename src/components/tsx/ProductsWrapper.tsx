@@ -22,6 +22,9 @@ const ProductsWrapper = (props: SearchParams) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
+    if (!environment) {
+      return;
+    }
     const fetchProducts = async () => {
       setProducts([]);
 

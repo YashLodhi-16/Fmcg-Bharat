@@ -2,7 +2,12 @@
 import PrivacyAndPolicy from "@/components/tsx/PrivacyAndPolicy";
 import LegalContainer from "@/components/tsx/LegalContainer";
 import Main from "@/components/tsx/Main";
-import { legalId, title, titleConcatinate } from "@/lib/utilities/variables";
+import {
+  environment,
+  legalId,
+  title,
+  titleConcatinate,
+} from "@/lib/utilities/variables";
 import { Metadata } from "next";
 import { privacyAndPolicy } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
@@ -41,7 +46,7 @@ export const metadata: Metadata = {
     title: title + titleConcatinate + name,
     description:
       "Learn about FMCG Bharat's privacy policy and how we handle your information.",
-    url: process.env.NEXT_PUBLIC_PRO_API + privacyAndPolicy,
+    url: environment + privacyAndPolicy,
     type: "website",
     images: [
       {
@@ -52,5 +57,5 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: { canonical: process.env.NEXT_PUBLIC_PRO_API + privacyAndPolicy },
+  alternates: { canonical: environment + privacyAndPolicy },
 };

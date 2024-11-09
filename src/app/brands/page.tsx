@@ -4,7 +4,11 @@ import Main from "@/components/tsx/Main";
 import Summary from "@/components/tsx/Summary";
 import { brands, products } from "@/lib/utilities/routes";
 import { Metadata } from "next";
-import { title, titleConcatinate } from "@/lib/utilities/variables";
+import {
+  environment,
+  title,
+  titleConcatinate,
+} from "@/lib/utilities/variables";
 import titleName from "@/lib/utilities/titleName";
 
 // page - Brands
@@ -53,7 +57,7 @@ export const metadata: Metadata = {
     title: title + titleConcatinate + name,
     description:
       "Find the best FMCG brands at FMCG Bharat. Discover quality products from leading brands.",
-    url: process.env.NEXT_PUBLIC_PRO_API + brands,
+    url: environment + brands,
     type: "website",
     images: [
       {
@@ -64,5 +68,5 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: { canonical: process.env.NEXT_PUBLIC_PRO_API + brands },
+  alternates: { canonical: environment + brands },
 };

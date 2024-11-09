@@ -3,7 +3,11 @@ import BasicLayout from "@/components/tsx/BasicLayout";
 import Main from "@/components/tsx/Main";
 import Summary from "@/components/tsx/Summary";
 import { home } from "@/lib/utilities/routes";
-import { title, titleConcatinate } from "@/lib/utilities/variables";
+import {
+  environment,
+  title,
+  titleConcatinate,
+} from "@/lib/utilities/variables";
 import { Metadata } from "next";
 import { blogs } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
@@ -54,7 +58,7 @@ export const metadata: Metadata = {
     title: title + titleConcatinate + name,
     description:
       "Discover insights and updates from the FMCG world through our blog at FMCG Bharat.",
-    url: process.env.NEXT_PUBLIC_PRO_API + blogs,
+    url: environment + blogs,
     type: "website",
     images: [
       {
@@ -65,5 +69,5 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: { canonical: process.env.NEXT_PUBLIC_PRO_API + blogs },
+  alternates: { canonical: environment + blogs },
 };

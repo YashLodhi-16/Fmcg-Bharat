@@ -5,7 +5,7 @@ import Navbar from "@/components/tsx/Navbar";
 import Footer from "@/components/tsx/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { title } from "@/lib/utilities/variables";
+import { environment, title } from "@/lib/utilities/variables";
 import StoreProvider from "./StoreProvider";
 config.autoAddCss = false;
 
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title,
     description:
       "FMCG Bharat is your premier online marketplace for fast-moving consumer goods. Discover a wide range of groceries, personal care items, and household essentials, all delivered to your doorstep at competitive prices. Shop smart, save time!",
-    url: process.env?.NEXT_PUBLIC_PRO_API,
+    url: environment,
     siteName: title,
     locale: "en_US",
     type: "website",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_PRO_API,
+    canonical: environment,
   },
 };
 

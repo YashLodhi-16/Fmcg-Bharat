@@ -3,6 +3,7 @@ import React from "react";
 import "../css/legalContainer.css";
 import LegalContainer from "./LegalContainer";
 import { contact } from "@/lib/utilities/routes";
+import { environment } from "@/lib/utilities/variables";
 
 const PrivacyAndPolicy = () => {
   if (!process.env.NEXT_PUBLIC_EMAIL) {
@@ -189,10 +190,10 @@ const PrivacyAndPolicy = () => {
           <p>
             By visiting this page on our website:{" "}
             <Link
-              href={process.env.NEXT_PUBLIC_PRO_API + contact}
+              href={environment + contact}
               className="text-blue-600 hover-link normal-case"
             >
-              {process.env.NEXT_PUBLIC_PRO_API + contact}
+              {environment + contact}
             </Link>
           </p>
         </li>

@@ -4,7 +4,12 @@ import Main from "@/components/tsx/Main";
 import TermsAndConditions from "@/components/tsx/TermsAndConditions";
 import { termsAndConditions } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
-import { legalId, title, titleConcatinate } from "@/lib/utilities/variables";
+import {
+  environment,
+  legalId,
+  title,
+  titleConcatinate,
+} from "@/lib/utilities/variables";
 import { Metadata } from "next";
 
 // page - terms and conditions
@@ -41,7 +46,7 @@ export const metadata: Metadata = {
     title: title + titleConcatinate + name,
     description:
       "Read the terms and conditions of FMCG Bharat before using our services.",
-    url: process.env.NEXT_PUBLIC_PRO_API + termsAndConditions,
+    url: environment + termsAndConditions,
     type: "website",
     images: [
       {
@@ -53,6 +58,6 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_PRO_API + termsAndConditions,
+    canonical: environment + termsAndConditions,
   },
 };

@@ -6,6 +6,14 @@ import sendEmails from "@/lib/utilities/sendEmails";
 import { environment } from "@/lib/utilities/variables";
 import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
+  if (!environment) {
+    return NextResponse.json(
+      {
+        message: "environment variable in not available",
+      },
+      { status: 500 }
+    );
+  }
   try {
     const data = await request.json();
     const {

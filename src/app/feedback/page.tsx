@@ -1,6 +1,10 @@
 // all import statements
 import { Metadata } from "next";
-import { title, titleConcatinate } from "@/lib/utilities/variables";
+import {
+  environment,
+  title,
+  titleConcatinate,
+} from "@/lib/utilities/variables";
 import { feedback } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
 import { Page } from "@/lib/interfaces/Form";
@@ -64,7 +68,7 @@ export const metadata: Metadata = {
     title: title + titleConcatinate + name,
     description:
       "Give us your valuable feedback and help FMCG Bharat improve its services.",
-    url: process.env.NEXT_PUBLIC_PRO_API + feedback,
+    url: environment + feedback,
     type: "website",
     images: [
       {
@@ -75,5 +79,5 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: { canonical: process.env.NEXT_PUBLIC_PRO_API + feedback },
+  alternates: { canonical: environment + feedback },
 };

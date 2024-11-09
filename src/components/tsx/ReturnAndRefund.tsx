@@ -2,9 +2,10 @@ import React from "react";
 import "../css/legalContainer.css";
 import Link from "next/link";
 import { contact } from "@/lib/utilities/routes";
+import { environment } from "@/lib/utilities/variables";
 
 const ReturnAndRefund = () => {
-  if (!process.env.NEXT_PUBLIC_EMAIL || !process.env.NEXT_PUBLIC_PRO_API) {
+  if (!process.env.NEXT_PUBLIC_EMAIL) {
     throw new Error("Missing Necessary Environmental Variables.");
   }
   return (
@@ -61,10 +62,10 @@ const ReturnAndRefund = () => {
             <span className="font-semibold">Website</span> refers to fmcg
             bharat, accessible from{" "}
             <Link
-              href={process.env.NEXT_PUBLIC_PRO_API}
+              href={environment}
               className="hover-link text-blue-600 normal-case"
             >
-              {process.env.NEXT_PUBLIC_PRO_API}
+              {environment}
             </Link>
           </p>
         </li>
@@ -106,10 +107,10 @@ const ReturnAndRefund = () => {
           <p>
             By visiting this page on our website:{" "}
             <Link
-              href={process.env.NEXT_PUBLIC_PRO_API}
+              href={environment}
               className="hover-link normal-case text-blue-600"
             >
-              {process.env.NEXT_PUBLIC_PRO_API + contact}
+              {environment + contact}
             </Link>
           </p>
         </li>

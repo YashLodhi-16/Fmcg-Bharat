@@ -2,7 +2,12 @@
 import ReturnAndRefund from "@/components/tsx/ReturnAndRefund";
 import LegalContainer from "@/components/tsx/LegalContainer";
 import Main from "@/components/tsx/Main";
-import { legalId, title, titleConcatinate } from "@/lib/utilities/variables";
+import {
+  environment,
+  legalId,
+  title,
+  titleConcatinate,
+} from "@/lib/utilities/variables";
 import titleName from "@/lib/utilities/titleName";
 import { returnAndRefund } from "@/lib/utilities/routes";
 import { Metadata } from "next";
@@ -41,7 +46,7 @@ export const metadata: Metadata = {
     title: title + titleConcatinate + name,
     description:
       "Read about FMCG Bharat’s return and refund policies for hassle-free transactions.",
-    url: process.env.NEXT_PUBLIC_PRO_API + returnAndRefund,
+    url: environment + returnAndRefund,
     type: "website",
     images: [
       {
@@ -52,5 +57,5 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: { canonical: process.env.NEXT_PUBLIC_PRO_API + returnAndRefund },
+  alternates: { canonical: environment + returnAndRefund },
 };

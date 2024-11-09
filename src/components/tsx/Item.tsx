@@ -33,6 +33,9 @@ const Item = (props: { id: string }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const getData = async () => {
+      if (!environment) {
+        return;
+      }
       const data: { documents: Product[] } = await fetchData(
         environment + "/api" + products,
         {

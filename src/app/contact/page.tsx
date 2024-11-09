@@ -2,7 +2,11 @@
 import FormMain from "@/components/tsx/FormMain";
 import { useMemo } from "react";
 import { Metadata } from "next";
-import { title, titleConcatinate } from "@/lib/utilities/variables";
+import {
+  environment,
+  title,
+  titleConcatinate,
+} from "@/lib/utilities/variables";
 import { contact } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
 import MainForm from "@/components/tsx/MainForm";
@@ -63,7 +67,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: title + titleConcatinate + name,
     description: "Reach out to FMCG Bharat for inquiries or customer support.",
-    url: process.env.NEXT_PUBLIC_PRO_API + contact,
+    url: environment + contact,
     type: "website",
     images: [
       {
@@ -74,5 +78,5 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: { canonical: process.env.NEXT_PUBLIC_PRO_API + contact },
+  alternates: { canonical: environment + contact },
 };

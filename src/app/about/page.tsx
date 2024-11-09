@@ -12,7 +12,11 @@ import {
 } from "@/lib/interfaces/Card";
 import { about } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
-import { title, titleConcatinate } from "@/lib/utilities/variables";
+import {
+  environment,
+  title,
+  titleConcatinate,
+} from "@/lib/utilities/variables";
 import { Metadata } from "next";
 
 // page - about
@@ -271,7 +275,7 @@ export const metadata: Metadata = {
     title: title + titleConcatinate + name,
     description:
       "Discover FMCG Bharat’s mission and how we deliver the best consumer goods online.",
-    url: process.env.NEXT_PUBLIC_PRO_API + about,
+    url: environment + about,
     type: "website",
     images: [
       {
@@ -282,5 +286,5 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: { canonical: process.env.NEXT_PUBLIC_PRO_API + about },
+  alternates: { canonical: environment + about },
 };

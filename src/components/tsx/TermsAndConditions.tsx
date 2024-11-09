@@ -1,8 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import "../css/legalContainer.css";
+import { environment } from "@/lib/utilities/variables";
 const TermsAndConditions = () => {
-  if (!process.env.NEXT_PUBLIC_EMAIL || !process.env.NEXT_PUBLIC_PRO_API) {
+  if (!process.env.NEXT_PUBLIC_EMAIL) {
     throw new Error("Missing Necessary Environmental Variables.");
   }
   return (
@@ -75,10 +76,10 @@ const TermsAndConditions = () => {
           <p>
             <span>Website</span> refers to fmcg bharat, accessible from{" "}
             <Link
-              href={process.env.NEXT_PUBLIC_PRO_API}
+              href={environment}
               className="hover-link text-blue-600 normal-case"
             >
-              {process.env.NEXT_PUBLIC_PRO_API}
+              {environment}
             </Link>
           </p>
         </li>
