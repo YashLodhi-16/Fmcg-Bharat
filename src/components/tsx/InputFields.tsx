@@ -16,7 +16,7 @@ const InputFields = (props: InputFieldsDetails) => {
   });
 
   return (
-    <div className="flex gap-4 items-center justify-start">
+    <div className="flex gap-4 items-center justify-start w-full">
       {/* add src and input element here */}
       {clonedSrc}
       <div className="relative group w-full">

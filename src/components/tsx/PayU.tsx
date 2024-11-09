@@ -233,7 +233,7 @@ const PayU = (props: {
           const { input, src } = value;
           return <InputFields input={input} src={src} key={index} />;
         })} */}
-        <div className="flex gap-8 flex-wrap">
+        <div className="flex gap-8 flex-col sm:flex-row">
           <InputFields
             input={inputFields[0].input}
             src={inputFields[0].src}
@@ -252,7 +252,7 @@ const PayU = (props: {
           key={2}
         />
 
-        <div className="flex gap-8 flex-wrap">
+        <div className="flex gap-8 flex-col sm:flex-row">
           <InputFields
             input={inputFields[3].input}
             src={inputFields[3].src}
@@ -265,7 +265,7 @@ const PayU = (props: {
           />
         </div>
 
-        <div className="flex gap-8 flex-wrap">
+        <div className="flex gap-8 flex-col sm:flex-row">
           <InputFields
             input={inputFields[5].input}
             src={inputFields[5].src}
