@@ -11,6 +11,7 @@ import { Page } from "@/lib/interfaces/Form";
 import { useMemo } from "react";
 import FormMain from "@/components/tsx/FormMain";
 import MainForm from "@/components/tsx/MainForm";
+import Navbar from "@/components/tsx/Navbar";
 
 // page - Feedback
 export default function Feedback() {
@@ -36,8 +37,8 @@ export default function Feedback() {
         "Your thoughts help us improve! Please take a moment to share your experience with us so we can continue to provide the best service possible. Your feedback is important and appreciated.",
     },
     secondSection: {
-      link: "040-67607600",
-      href: "tel:040-67607600",
+      link: "+91 9718701241",
+      href: "tel:+91 9718701241",
       heading: "call us",
       paragraph: "monday to saturday 10:00 am - 6:00 pm.",
     },
@@ -46,15 +47,19 @@ export default function Feedback() {
 
   // return a simple contact form
   return (
-    <div className="relative">
-      {main}
-      <MainForm
-        firstSection={page.firstSection}
-        secondSection={page.secondSection}
-        api={page.api}
-        bottomPosition={page.bottomPosition}
-      />
-    </div>
+    <>
+      <Navbar />
+
+      <div className="relative">
+        {main}
+        <MainForm
+          firstSection={page.firstSection}
+          secondSection={page.secondSection}
+          api={page.api}
+          bottomPosition={page.bottomPosition}
+        />
+      </div>
+    </>
   );
 }
 

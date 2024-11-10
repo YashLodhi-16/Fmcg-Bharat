@@ -65,7 +65,6 @@ export default function RootLayout({
         {/* navbar and footer  */}
         {/* are the most important component for every page so i add them to layout directly.
          */}
-        <Navbar />
         <StoreProvider>{children}</StoreProvider>
         <Footer />
       </body>

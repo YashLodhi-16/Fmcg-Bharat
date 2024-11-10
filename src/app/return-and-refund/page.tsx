@@ -11,12 +11,14 @@ import {
 import titleName from "@/lib/utilities/titleName";
 import { returnAndRefund } from "@/lib/utilities/routes";
 import { Metadata } from "next";
+import Navbar from "@/components/tsx/Navbar";
 
 // page - return and refund
 export default function ReturnAndRefundPage() {
   const key: number = 0;
   return (
     <div className="">
+      <Navbar />
       {/* a main and legalContainer section */}
       <Main
         href={"#" + legalId}

@@ -10,6 +10,7 @@ import {
   titleConcatinate,
 } from "@/lib/utilities/variables";
 import titleName from "@/lib/utilities/titleName";
+import Navbar from "@/components/tsx/Navbar";
 
 // page - Brands
 export default function Brands() {
@@ -17,6 +18,8 @@ export default function Brands() {
   return (
     // a div with main section and no Brands available section.
     <div className="">
+      <Navbar />
+
       <Main
         href={products}
         link="products"
@@ -26,8 +29,10 @@ export default function Brands() {
         key={key}
       >
         {/* heading in two parts as a children prop */}
-        <span>fmcg bharat</span>
-        <span className="block text-lg uppercase font-semibold">
+        <span className="">
+          <span className="text-orange-500">fmcg</span> bharat
+        </span>
+        <span className="block text-lg uppercase font-semibold mt-1">
           official brands
         </span>
       </Main>

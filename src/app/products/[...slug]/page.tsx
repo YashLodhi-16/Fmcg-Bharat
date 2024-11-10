@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { products } from "@/lib/utilities/routes";
 import ProductsWrapper from "@/components/tsx/ProductsWrapper";
 import Filter from "@/components/tsx/Filter";
+import Navbar from "@/components/tsx/Navbar";
 export default async function Page({
   params,
 }: {
@@ -25,6 +26,8 @@ export default async function Page({
     if (idOrNot) {
       return (
         <>
+          <Navbar />
+
           <Filter />
           <BasicLayout paddingTop={true}>
             <Item id={idOrMainCategory} />
@@ -36,6 +39,8 @@ export default async function Page({
       console.log("hello", idOrMainCategory);
       return (
         <>
+          <Navbar />
+
           <Filter />
           <BasicLayout paddingTop={true}>
             <ProductsWrapper

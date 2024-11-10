@@ -86,7 +86,7 @@ const CartProduct = (props: ProductWithCartDetails) => {
   };
 
   return (
-    <div className="flex gap-6 shadow-xl border border-solid border-gray-300 rounded px-4 py-4 sm:px-8 sm:py-8 flex-col bg-white">
+    <div className="flex gap-6 shadow-xl border border-solid border-gray-300 rounded px-4 py-4 sm:px-8 sm:py-8 flex-col bg-white !h-full">
       <div className="flex gap-16 w-full flex-col sm:flex-row items-center sm:items-start">
         <div className="">
           <Image

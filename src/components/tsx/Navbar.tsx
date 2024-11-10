@@ -1,6 +1,6 @@
 "use client";
 // import all necessary modules
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // font from google
@@ -19,6 +19,8 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch } from "react-redux";
+import { query } from "@/lib/store/features/searchProducts/searchProductSlice";
 
 // data structure for link elements to create routes.
 interface Url {
@@ -27,9 +29,22 @@ interface Url {
   url: string;
 }
 
-const Navbar = () => {
+const Navbar = (props: { defaultSearch?: string }) => {
+  const { defaultSearch } = props;
   // all routes (their name, icon and path)
   const className = "w-5 !h-5 text-gray-700";
+
+  const pathname = usePathname();
+  const [search, setSearch] = useState<string>(defaultSearch || "");
+  const dispatch = useDispatch();
+  const searchProducts = () => {
+    // console.log(search);
+    dispatch(query(search));
+  };
+  useEffect(() => {
+    searchProducts();
+  }, []);
+
   const url: Url[] = [
     {
       name: "home",
@@ -58,8 +73,6 @@ const Navbar = () => {
     },
   ];
 
-  const pathname = usePathname();
-
   return (
     <nav className="flex justify-center flex-col gap-7 py-2 px-10 items-center md:flex-row md:flex-wrap md:justify-between bg-white ">
       <div className="m-auto lg:m-0">
@@ -75,15 +88,23 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {pathname === products && (
-        <div className="md:w-1/2 px-4 py-2  border-2 border-solid border-blue-600 rounded-full flex gap-4 justify-center items-center">
+      {pathname.includes(products) && (
+        <div className="md:w-1/2 pr-2 border-2 border-solid border-blue-600 rounded-full flex justify-center items-center">
           <input
             type="text"
-            className="focus:outline-none focus-visible:border-none focus-visible:outline-none focus:border-none w-full"
+            className="focus:outline-none focus-visible:border-none focus-visible:outline-none focus:border-none w-full px-4 py-2 pr-4 placeholder:capitalize placeholder:text-blue-600 placeholder:font-light rounded-full"
+            value={search}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setSearch(e.target.value)
+            }
+            placeholder="search everything at fmcg bharat"
           />
-          <div className="px-1 rounded-full bg-blue-900">
+          <button
+            className="px-1 rounded-full bg-blue-900 cursor-pointer"
+            onClick={searchProducts}
+          >
             <FontAwesomeIcon icon={faMagnifyingGlass} className="text-white" />
-          </div>
+          </button>
         </div>
       )}
       <ul className="flex gap-6 sm:gap-8 flex-wrap  justify-center md:flex-nowrap lg:text-base m-auto lg:m-0">
@@ -92,7 +113,7 @@ const Navbar = () => {
         {url.map((item: Url, index: number) => {
           const { name, url, icon } = item;
 
-          if (pathname === products) {
+          if (pathname.includes(products)) {
             if (cart === "/" + name || name === "home") {
               return (
                 <li

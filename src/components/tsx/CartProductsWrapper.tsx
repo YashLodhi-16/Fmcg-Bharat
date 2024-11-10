@@ -120,7 +120,7 @@ const CartProductsWrapper = () => {
       >
         <div className="w-full lg:w-3/4">
           <div
-            className="py-2 text-white flex px-4 rounded mb-8"
+            className="py-2 text-white flex px-4 rounded mb-8 items-center"
             style={{ backgroundColor: "#0071dc" }}
           >
             <button
@@ -136,14 +136,20 @@ const CartProductsWrapper = () => {
             >
               fill details
             </button>
+            <button
+              className="  text-white   capitalize font-semibold ml-auto"
+              onClick={() => dispatch(clearCart())}
+            >
+              clear cart
+            </button>
           </div>
 
           <div
-            className={`flex flex-col w-full md:w-auto md:flex-row gap-16 md:gap-4 items-center justify-center ${
+            className={`flex flex-col w-full md:w-auto md:flex-row gap-16 md:gap-4 items-stretch justify-center ${
               model ? "hidden" : "block"
             } `}
           >
-            <div className="flex flex-col gap-8 max-w-[40rem] w-full">
+            <div className="flex flex-col gap-8 max-w-[40rem] w-full h-full">
               {/* <div className="flex flex-col gap-8 max-w-[45rem]"> */}
               {cartProducts?.map((value: CartProducts) => {
                 const { _id, color, totalQuantity } = value;
@@ -163,18 +169,13 @@ const CartProductsWrapper = () => {
             </div>
 
             <div
-              className={`flex flex-col gap-4 border border-solid border-gray-300 h-max rounded px-4 py-4 sm:px-8 sm:py-8 shadow-xl bg-white w-full md:max-w-[20rem] ${
+              className={`flex flex-col gap-4 border border-solid border-gray-300 h-max rounded px-4 py-4 sm:px-8 sm:py-6 shadow-xl bg-white w-full md:max-w-[20rem] ${
                 cartProducts.length === 0 ? "hidden" : "block"
               }`}
             >
-              <div className="pb-4 border-b border-dashed border-gray-400">
-                <h3 className="uppercase text-neutral-500 font-semibold">
-                  price details
-                </h3>
-              </div>
               <div className="grid grid-rows-3  gap-y-2">
                 <div className="flex justify-between items-center gap-4">
-                  <p>price ({cartProducts.length} items)</p>
+                  <p>subtotal ({cartProducts.length} items)</p>
                   <p>
                     <span>&#8377;</span>
                     {totalActualPriceINR}
@@ -207,17 +208,10 @@ const CartProductsWrapper = () => {
 
               <div className="flex flex-wrap gap-4">
                 <button
-                  className="bg-teal-700 text-white px-4 py-2 capitalize font-semibold rounded   hover:scale-90 transition duration-300 ease-in-out hover:shadow-xl"
-                  onClick={() => dispatch(clearCart())}
-                >
-                  clear cart
-                </button>
-
-                <button
-                  className="bg-orange-600 text-white px-4 py-2 capitalize font-semibold rounded   hover:scale-90 transition duration-300 ease-in-out hover:shadow-xl"
+                  className="bg-[#0071dc] w-full text-white px-4 py-2 font-semibold rounded-full  hover:scale-90 transition duration-300 ease-in-out hover:shadow-xl"
                   onClick={() => setModel(true)}
                 >
-                  place order
+                  Continue to checkout
                 </button>
               </div>
 

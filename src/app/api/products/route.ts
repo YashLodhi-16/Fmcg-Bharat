@@ -14,6 +14,19 @@ export async function GET(request: NextRequest) {
     } else {
       const pipeline: mongoose.PipelineStage[] = [];
 
+      if (searchParams.has("query")) {
+        const query = searchParams.get("query");
+        pipeline.push({
+          $match: {
+            $or: [
+              { name: { $regex: query, $options: "i" } },
+              { description: { $regex: query, $options: "i" } },
+              { tags: { $regex: query, $options: "i" } }, // Assuming tags is a string; if it's an array, see note below
+            ],
+          },
+        });
+      }
+
       // Parse and validate the sort order for sales
       if (searchParams.has("sales")) {
         const salesOrder = parseInt(searchParams.get("sales") || "1") as 1 | -1;

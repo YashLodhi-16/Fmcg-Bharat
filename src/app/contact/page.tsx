@@ -11,6 +11,7 @@ import { contact } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
 import MainForm from "@/components/tsx/MainForm";
 import { Page } from "@/lib/interfaces/Form";
+import Navbar from "@/components/tsx/Navbar";
 
 // page - Contact
 export default function Contact() {
@@ -35,8 +36,8 @@ export default function Contact() {
         "Have any questions or need assistance? Feel free to reach out to us using the form below. Whether it's a query about our products, services, or anything else, we're here to help. Simply provide your details, and we'll get back to you as soon as possible!",
     },
     secondSection: {
-      link: "040-67607600",
-      href: "tel:040-67607600",
+      link: "+91 9718701241",
+      href: "tel:+91 9718701241",
       heading: "call us",
       paragraph: "monday to saturday 10:00 am - 6:00 pm",
     },
@@ -46,15 +47,19 @@ export default function Contact() {
 
   // simple template return
   return (
-    <div className="relative">
-      {main}
-      <MainForm
-        api={page.api}
-        firstSection={page.firstSection}
-        secondSection={page.secondSection}
-        bottomPosition={page.bottomPosition}
-      />
-    </div>
+    <>
+      <Navbar />
+
+      <div className="relative">
+        {main}
+        <MainForm
+          api={page.api}
+          firstSection={page.firstSection}
+          secondSection={page.secondSection}
+          bottomPosition={page.bottomPosition}
+        />
+      </div>
+    </>
   );
 }
 

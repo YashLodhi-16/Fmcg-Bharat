@@ -15,6 +15,7 @@ import { BaseProduct } from "@/lib/interfaces/Product";
 import ProductCard from "@/components/tsx/ProductCard";
 import CardsHolder from "@/components/tsx/CardsHolder";
 import ProductsWrapper from "@/components/tsx/ProductsWrapper";
+import Navbar from "@/components/tsx/Navbar";
 
 // page - home
 export default async function Home() {
@@ -342,6 +343,8 @@ export default async function Home() {
 
   return (
     <div className="">
+      <Navbar />
+
       {/* hero section */}
       <Main
         href="/products"

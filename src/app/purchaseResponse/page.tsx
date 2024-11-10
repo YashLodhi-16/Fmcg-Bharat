@@ -7,6 +7,7 @@ import { RootState } from "@/lib/store/store";
 import { useSelector, useDispatch } from "react-redux";
 import fetchData from "@/lib/utilities/fetchData";
 import { clearCart } from "@/lib/store/features/cartProducts/cartProductSlice";
+import Navbar from "@/components/tsx/Navbar";
 
 export const dynamic = "force-dynamic";
 
@@ -114,50 +115,55 @@ const PurchaseResponse = () => {
   ]);
 
   return (
-    <BasicLayout paddingTop={true}>
-      <main
-        className={`${
-          status === "success"
-            ? "bg-green-100 text-green-800"
-            : "bg-red-100 text-red-800"
-        }
+    <>
+      <Navbar />
+
+      <BasicLayout paddingTop={true}>
+        <main
+          className={`${
+            status === "success"
+              ? "bg-green-100 text-green-800"
+              : "bg-red-100 text-red-800"
+          }
         px-8 py-8 rounded shadow-xl flex flex-col justify-center items-start gap-8 max-w-full sm:max-w-screen-sm mx-auto
         `}
-      >
-        <div>
-          <h1 className="text-3xl">
-            Dear,{" "}
-            <span className="text-slate-800 font-semibold">
-              {firstName + " " + lastName}
-            </span>
-          </h1>
-          {amount ? (
-            <p className="text-xl">
-              the total amount you paid is{" "}
+        >
+          <div>
+            <h1 className="text-3xl">
+              Dear,{" "}
               <span className="text-slate-800 font-semibold">
-                &#8377;{amount}
+                {firstName + " " + lastName}
               </span>
+            </h1>
+            {amount ? (
+              <p className="text-xl">
+                the total amount you paid is{" "}
+                <span className="text-slate-800 font-semibold">
+                  &#8377;{amount}
+                </span>
+              </p>
+            ) : (
+              <p className="text-xl">
+                transaction failed due to{" "}
+                <span className="text-slate-800 font-semibold">
+                  {errorMessage}
+                </span>
+              </p>
+            )}
+          </div>
+          <div>
+            <p className="text-sm">the bill is sent to your email.</p>
+            <p className="text-sm">
+              thank you for purchasing products from our site.
             </p>
-          ) : (
-            <p className="text-xl">
-              transaction failed due to{" "}
-              <span className="text-slate-800 font-semibold">
-                {errorMessage}
-              </span>
+            <p className="text-sm text-yellow-500">
+              you will be redirected to the homepage in {timeoutCounter}{" "}
+              seconds.
             </p>
-          )}
-        </div>
-        <div>
-          <p className="text-sm">the bill is sent to your email.</p>
-          <p className="text-sm">
-            thank you for purchasing products from our site.
-          </p>
-          <p className="text-sm text-yellow-500">
-            you will be redirected to the homepage in {timeoutCounter} seconds.
-          </p>
-        </div>
-      </main>
-    </BasicLayout>
+          </div>
+        </main>
+      </BasicLayout>
+    </>
   );
 };
 

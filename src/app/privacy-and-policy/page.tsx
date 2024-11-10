@@ -11,12 +11,15 @@ import {
 import { Metadata } from "next";
 import { privacyAndPolicy } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
+import Navbar from "@/components/tsx/Navbar";
 
 // page - privacy and policy
 export default function PrivacyAndPolicyPage() {
   const key: number = 0;
   return (
     <div className="">
+      <Navbar />
+
       {/* a main and legalContainer section */}
       <Main
         href={"#" + legalId}

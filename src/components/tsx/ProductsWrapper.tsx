@@ -1,16 +1,15 @@
 "use client";
-import {
-  BaseProduct,
-  CategoryDetailsFromServer,
-  Product,
-  SearchProducts,
-} from "@/lib/interfaces/Product";
+import { BaseProduct, Product, SearchProducts } from "@/lib/interfaces/Product";
 import fetchData from "@/lib/utilities/fetchData";
 import React, { useEffect, useState } from "react";
 import CardsHolder from "./CardsHolder";
 import ProductCard from "./ProductCard";
 import { category } from "@/lib/utilities/routes";
 import { environment } from "@/lib/utilities/variables";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/lib/store/store";
+import { usePathname } from "next/navigation";
+import { query } from "@/lib/store/features/searchProducts/searchProductSlice";
 
 interface SearchParams extends SearchProducts {
   mainCategory?: string | null;
@@ -19,7 +18,12 @@ interface SearchParams extends SearchProducts {
 }
 const ProductsWrapper = (props: SearchParams) => {
   const { sales, mainCategory, subCategory, underCategory } = props;
+  const pathName = usePathname();
   const [products, setProducts] = useState<Product[]>([]);
+  const searchProducts = useSelector(
+    (state: RootState) => state.searchProducts
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!environment) {
@@ -27,8 +31,16 @@ const ProductsWrapper = (props: SearchParams) => {
     }
     const fetchProducts = async () => {
       setProducts([]);
-
-      if (mainCategory) {
+      if (!pathName.includes("/products")) {
+        console.log("hello products");
+        dispatch(query(""));
+      }
+      if (searchProducts.length > 0) {
+        const { products } = await fetchData(
+          `${environment}/api/products?query=${searchProducts}`
+        );
+        setProducts(products);
+      } else if (mainCategory) {
         const uri = `mainCategory=${mainCategory}${
           subCategory ? "&subCategory=" + subCategory : ""
         }${underCategory ? "&underCategory=" + underCategory : ""}`;
@@ -45,7 +57,7 @@ const ProductsWrapper = (props: SearchParams) => {
       }
     };
     fetchProducts();
-  }, [sales, mainCategory, subCategory, underCategory]);
+  }, [sales, mainCategory, subCategory, underCategory, searchProducts]);
   return products.length === 0 ? (
     <h1 className="text-2xl font-semibold text-slate-800 text-center">
       This Category Doesn&#39;t Exist.

@@ -11,6 +11,7 @@ import {
 import { Metadata } from "next";
 import { blogs } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
+import Navbar from "@/components/tsx/Navbar";
 
 // page - Blogs
 export default function Blogs() {
@@ -18,6 +19,8 @@ export default function Blogs() {
   return (
     // a div with main section and no Blogs available section.
     <div className="">
+      <Navbar />
+
       <Main
         href={home}
         link="products"
@@ -27,8 +30,10 @@ export default function Blogs() {
         key={key}
       >
         {/* heading in two parts as a children prop */}
-        <span>fmcg bharat</span>
-        <span className="block text-lg uppercase font-semibold">
+        <span className="">
+          <span className="text-orange-500">fmcg</span> bharat
+        </span>
+        <span className="block text-lg uppercase font-semibold mt-1">
           official blogs
         </span>
       </Main>

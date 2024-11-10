@@ -4,6 +4,7 @@ import BasicCategoryCard from "@/components/tsx/BasicCategoryCard";
 import BasicFaqCard from "@/components/tsx/BasicFaqCard";
 import BasicLayout from "@/components/tsx/BasicLayout";
 import Main from "@/components/tsx/Main";
+import Navbar from "@/components/tsx/Navbar";
 import SectionWrapper from "@/components/tsx/SectionWrapper";
 import {
   BasiCardDetails,
@@ -165,6 +166,8 @@ export default function About() {
   ];
   return (
     <div className="">
+      <Navbar />
+
       {/* hero section of the page */}
       <Main
         href="#aboutContainer"
