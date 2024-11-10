@@ -35,7 +35,7 @@ const Search = () => {
         />
         {/* a link that will search the product that user enters in the input field */}
         <Link
-          href={{ pathname: "/products", query: { search: searchHref } }}
+          href={{ pathname: products, query: { search: searchHref } }}
           className="outline-none"
         >
           <button className="px-4 py-4 border border-solid border-black bg-black text-white font-semibold capitalize focus:outline-none focus-visible:outline-none rounded-r ">

@@ -31,7 +31,7 @@ const ProductsPageContentWrapper = (props: { children: React.ReactNode }) => {
         />
 
         {/* this component have all the product that will appear on the page you can manipulate the product of this component by passing a prop. */}
-        <ProductsWrapper sales={1} />
+        <ProductsWrapper sales={-1} />
       </BasicLayout>
     </div>
   );

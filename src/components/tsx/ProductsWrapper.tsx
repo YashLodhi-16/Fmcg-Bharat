@@ -31,15 +31,16 @@ const ProductsWrapper = (props: SearchParams) => {
     }
     const fetchProducts = async () => {
       setProducts([]);
-      if (!pathName.includes("/products")) {
-        console.log("hello products");
-        dispatch(query(""));
-      }
+      // console.log(searchProducts);
       if (searchProducts.length > 0) {
-        const { products } = await fetchData(
-          `${environment}/api/products?query=${searchProducts}`
-        );
-        setProducts(products);
+        if (!pathName.includes("/products")) {
+          dispatch(query(""));
+        } else {
+          const { products } = await fetchData(
+            `${environment}/api/products?query=${searchProducts}`
+          );
+          setProducts(products);
+        }
       } else if (mainCategory) {
         const uri = `mainCategory=${mainCategory}${
           subCategory ? "&subCategory=" + subCategory : ""
@@ -56,7 +57,8 @@ const ProductsWrapper = (props: SearchParams) => {
         setProducts(products);
       }
     };
-    fetchProducts();
+    const timeOut = setTimeout(fetchProducts, 500);
+    return () => clearTimeout(timeOut);
   }, [sales, mainCategory, subCategory, underCategory, searchProducts]);
   return products.length === 0 ? (
     <h1 className="text-2xl font-semibold text-slate-800 text-center">

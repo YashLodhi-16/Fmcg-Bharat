@@ -38,12 +38,11 @@ const Navbar = (props: { defaultSearch?: string }) => {
   const [search, setSearch] = useState<string>(defaultSearch || "");
   const dispatch = useDispatch();
   const searchProducts = () => {
-    // console.log(search);
     dispatch(query(search));
   };
   useEffect(() => {
     searchProducts();
-  }, []);
+  }, [search]);
 
   const url: Url[] = [
     {
@@ -99,12 +98,12 @@ const Navbar = (props: { defaultSearch?: string }) => {
             }
             placeholder="search everything at fmcg bharat"
           />
-          <button
+          <Link
+            href={{ pathname: "/products", query: { search } }}
             className="px-1 rounded-full bg-blue-900 cursor-pointer"
-            onClick={searchProducts}
           >
             <FontAwesomeIcon icon={faMagnifyingGlass} className="text-white" />
-          </button>
+          </Link>
         </div>
       )}
       <ul className="flex gap-6 sm:gap-8 flex-wrap  justify-center md:flex-nowrap lg:text-base m-auto lg:m-0">
