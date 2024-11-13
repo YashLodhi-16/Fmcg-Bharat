@@ -10,7 +10,7 @@ const Products = ({ searchParams }: { searchParams: { search?: string } }) => {
   // put others main component inside of productsPageContentWrapper component
   return (
     <div>
-      <Navbar defaultSearch={searchParams.search} />
+      <Navbar />
 
       <ProductsPageContentWrapper>
         {/* this will add a typing effect */}

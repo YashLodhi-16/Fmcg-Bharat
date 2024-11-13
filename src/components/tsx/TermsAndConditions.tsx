@@ -11,10 +11,11 @@ const TermsAndConditions = () => {
       <h2>Terms and Conditions</h2>
       <p>Last updated: november 08, 2024</p>
       <p>
-        For the purpose of these Terms and Conditions, The term "we", "us",
-        "our" used anywhere on this page shall mean PANKAJ KUMAR. "you", “your”,
-        "user", “visitor” shall mean any natural or legal person who is visiting
-        our website and/or agreed to purchase from us.
+        For the purpose of these Terms and Conditions, The term &quot;we&quot;,
+        &quot;us&quot;, &quot;our&quot; used anywhere on this page shall mean
+        PANKAJ KUMAR. &quot;you&quot;, &quot;your&quot;, &quot;user&quot;,
+        &quot;visitor&quot; shall mean any natural or legal person who is
+        visiting our website and/or agreed to purchase from us.
       </p>
       <p className="text-xl font-semibold">Welcome to FMCG Bharat!</p>
       <p>
