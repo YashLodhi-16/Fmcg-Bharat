@@ -10,6 +10,7 @@ import {
   instagram,
   privacyAndPolicy,
   returnAndRefund,
+  shipping,
   termsAndConditions,
   youtube,
 } from "@/lib/utilities/routes";
@@ -95,6 +96,7 @@ const Footer = () => {
         { src: privacyAndPolicy, name: "privacy and policy" },
         { src: returnAndRefund, name: "return and refund" },
         { src: termsAndConditions, name: "terms & conditions" },
+        { src: shipping, name: "shipping & delivery" },
       ],
     },
     {

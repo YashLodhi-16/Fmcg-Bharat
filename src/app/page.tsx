@@ -16,6 +16,7 @@ import ProductCard from "@/components/tsx/ProductCard";
 import CardsHolder from "@/components/tsx/CardsHolder";
 import ProductsWrapper from "@/components/tsx/ProductsWrapper";
 import Navbar from "@/components/tsx/common/Navbar";
+import MiniWrapper from "@/components/tsx/wrapper/MiniWrapper";
 
 // page - home
 export default async function Home() {
@@ -381,21 +382,30 @@ export default async function Home() {
 
       {/* top products */}
       <BasicLayout paddingTop={false}>
-        <Summary heading="Top Products" paragraph="some of the top products" />
-        <ProductsWrapper />
+        <MiniWrapper>
+          <Summary
+            heading="Top Products"
+            paragraph="some of the top products"
+          />
+          <ProductsWrapper />
+        </MiniWrapper>
       </BasicLayout>
 
       {/* laptop slider */}
-      <BasicLayout paddingTop={false}>
-        <Summary heading="deals on laptops" paragraph="" />
-        <ProductSlider products={laptop} />
-      </BasicLayout>
+      {/* <BasicLayout paddingTop={false}>
+        <MiniWrapper>
+          <Summary heading="deals on laptops" paragraph="" />
+          <ProductSlider products={laptop} />
+        </MiniWrapper>
+      </BasicLayout> */}
 
       {/* mobile slider */}
-      <BasicLayout paddingTop={false}>
-        <Summary heading="deals on mobile" paragraph="" />
-        <ProductSlider products={mobile} />
-      </BasicLayout>
+      {/* <BasicLayout paddingTop={false}>
+        <MiniWrapper>
+          <Summary heading="deals on mobile" paragraph="" />
+          <ProductSlider products={mobile} />
+        </MiniWrapper>
+      </BasicLayout> */}
 
       {/* search */}
       <BasicLayout paddingTop={false}>
@@ -404,17 +414,24 @@ export default async function Home() {
 
       {/* Testimonials */}
       <BasicLayout paddingTop={false}>
-        <Summary
-          heading="testimonials"
-          paragraph="Real stories from satisfied customers."
-        />
-        <Testimonials reviews={reviews} />
+        <MiniWrapper>
+          <Summary
+            heading="testimonials"
+            paragraph="Real stories from satisfied customers."
+          />
+          <Testimonials reviews={reviews} />
+        </MiniWrapper>
       </BasicLayout>
 
       {/* features */}
       <BasicLayout paddingTop={false}>
-        <Summary heading="our features" paragraph="some of the main features" />
-        <Features featuresData={featuresData} />
+        <MiniWrapper>
+          <Summary
+            heading="our features"
+            paragraph="some of the main features"
+          />
+          <Features featuresData={featuresData} />
+        </MiniWrapper>
       </BasicLayout>
     </div>
   );

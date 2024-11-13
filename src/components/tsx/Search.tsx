@@ -4,16 +4,25 @@ import React, { useState } from "react";
 import Summary from "./Summary";
 import Link from "next/link";
 import { products } from "@/lib/utilities/routes";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/lib/store/store";
+import { query } from "@/lib/store/features/searchProducts/searchProductSlice";
 
 // component - Search
 const Search = () => {
   // state for search product name
-  const [searchHref, setSearchHref] = useState<string>("");
-
+  const searchProducts = useSelector(
+    (state: RootState) => state.searchProducts
+  );
+  const dispatch = useDispatch();
+  const [searchHref, setSearchHref] = useState<string>(searchProducts);
   // update state function
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchHref(value);
+  };
+  const setSearchProducts = () => {
+    dispatch(query(searchHref));
   };
   // simple search button
   return (
@@ -35,7 +44,8 @@ const Search = () => {
         />
         {/* a link that will search the product that user enters in the input field */}
         <Link
-          href={{ pathname: products, query: { search: searchHref } }}
+          href={products}
+          onClick={setSearchProducts}
           className="outline-none"
         >
           <button className="px-4 py-4 border border-solid border-black bg-black text-white font-semibold capitalize focus:outline-none focus-visible:outline-none rounded-r ">

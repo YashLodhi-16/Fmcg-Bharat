@@ -14,6 +14,10 @@ const ReturnAndRefund = () => {
       <p>Last updated: November 08, 2024</p>
       <p>Thank you for shopping at fmcg bharat.</p>
       <p>
+        PANKAJ KUMAR believes in helping its customers as far as possible, and
+        has therefore a liberal cancellation policy.
+      </p>
+      <p>
         If, for any reason, You are not completely satisfied with a purchase We
         invite You to review our policy on refunds and returns.
       </p>

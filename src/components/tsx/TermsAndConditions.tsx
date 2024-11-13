@@ -11,8 +11,10 @@ const TermsAndConditions = () => {
       <h2>Terms and Conditions</h2>
       <p>Last updated: november 08, 2024</p>
       <p>
-        Please read these terms and conditions carefully before using Our
-        Service.
+        For the purpose of these Terms and Conditions, The term "we", "us",
+        "our" used anywhere on this page shall mean PANKAJ KUMAR. "you", “your”,
+        "user", “visitor” shall mean any natural or legal person who is visiting
+        our website and/or agreed to purchase from us.
       </p>
       <p className="text-xl font-semibold">Welcome to FMCG Bharat!</p>
       <p>

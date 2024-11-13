@@ -13,4 +13,5 @@ export const contact = "/contact",
   feedback = "/feedback",
   products = "/products",
   cart = "/cart",
-  category = "/category";
+  category = "/category",
+  shipping = "/shipping";

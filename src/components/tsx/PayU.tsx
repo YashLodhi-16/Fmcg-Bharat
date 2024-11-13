@@ -298,7 +298,7 @@ const PayU = (props: {
           proceed to payment
         </button>
       </div>
-      <form method="POST" action="https://test.payu.in/_payment" ref={formRef}>
+      {/* <form method="POST" action="https://test.payu.in/_payment" ref={formRef}>
         <input type="hidden" name="key" value={key} />
         <input type="hidden" name="txnid" value={txnid} />
         <input type="hidden" name="productinfo" value={productinfo} />
@@ -330,7 +330,7 @@ const PayU = (props: {
         />
         <input type="hidden" name="phone" value={formData?.phone} />
         <input type="hidden" name="hash" value="" ref={inputRef} />
-      </form>
+      </form> */}
     </div>
   );
 };
