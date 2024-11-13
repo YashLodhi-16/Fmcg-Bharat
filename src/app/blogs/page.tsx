@@ -11,7 +11,7 @@ import {
 import { Metadata } from "next";
 import { blogs } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 
 // page - Blogs
 export default function Blogs() {

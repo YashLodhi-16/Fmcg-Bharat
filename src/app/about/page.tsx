@@ -4,7 +4,8 @@ import BasicCategoryCard from "@/components/tsx/BasicCategoryCard";
 import BasicFaqCard from "@/components/tsx/BasicFaqCard";
 import BasicLayout from "@/components/tsx/BasicLayout";
 import Main from "@/components/tsx/Main";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
+import Reveal from "@/components/tsx/Reveal";
 import SectionWrapper from "@/components/tsx/SectionWrapper";
 import {
   BasiCardDetails,
@@ -55,17 +56,17 @@ export default function About() {
     {
       categories: ["shoes", "socks", "slippers"],
       heading: "foot wear",
-      href: "/products",
+      href: "/products/men/foot wear",
     },
     {
       categories: ["head phones", "mobiles", "ear buds"],
       heading: "electronics",
-      href: "/products",
+      href: "/products/electronics",
     },
     {
       categories: ["whey protein", "instant food items", "chocolates"],
       heading: "food",
-      href: "/products",
+      href: "/products/grocery",
     },
   ];
 
@@ -133,138 +134,143 @@ export default function About() {
         "Once your order is dispatched, we will send you a tracking number via email or SMS. You can use this number to track your order on our website.",
       question: "How can I track my order?",
     },
-    // {
-    //   answer:
-    //     "We accept returns for defective or damaged products within 7 days of delivery. To initiate a return, please contact our customer support team, and we’ll guide you through the process.",
-    //   question: "What is your return policy?",
-    // },
-    // {
-    //   answer:
-    //     "Shipping is free for orders above a certain amount. For orders below that threshold, a nominal shipping fee may apply. The applicable charges will be displayed during checkout.",
-    //   question: "Are there any shipping charges?",
-    // },
-    // {
-    //   answer:
-    //     "You can cancel your order before it is shipped. Once the order is dispatched, cancellations are not allowed. If you need to cancel an order, please contact our support team as soon as possible.",
-    //   question: "Can I cancel my order?",
-    // },
-    // {
-    //   answer:
-    //     "Yes, we frequently run discounts, offers, and promotions on various products. Be sure to subscribe to our newsletter and follow us on social media to stay updated.",
-    //   question: "Do you offer discounts or promotions?",
-    // },
-    // {
-    //   answer:
-    //     "You can reach our customer support team via email at support@fmcgbharat.com or call our helpline at [insert phone number]. We are available from 9 AM to 6 PM, Monday through Saturday.",
-    //   question: "How do I contact customer support?",
-    // },
-    // {
-    //   answer:
-    //     "Simply browse our product categories, add items to your cart, and proceed to checkout. You will need to provide your shipping address and payment details to complete the purchase.",
-    //   question: "How do I place an order on FMCG Bharat?",
-    // },
+    {
+      answer:
+        "We accept returns for defective or damaged products within 7 days of delivery. To initiate a return, please contact our customer support team, and we’ll guide you through the process.",
+      question: "What is your return policy?",
+    },
+    {
+      answer:
+        "Shipping is free for orders above a certain amount. For orders below that threshold, a nominal shipping fee may apply. The applicable charges will be displayed during checkout.",
+      question: "Are there any shipping charges?",
+    },
+    {
+      answer:
+        "You can cancel your order before it is shipped. Once the order is dispatched, cancellations are not allowed. If you need to cancel an order, please contact our support team as soon as possible.",
+      question: "Can I cancel my order?",
+    },
+    {
+      answer:
+        "Yes, we frequently run discounts, offers, and promotions on various products. Be sure to subscribe to our newsletter and follow us on social media to stay updated.",
+      question: "Do you offer discounts or promotions?",
+    },
+    {
+      answer:
+        "You can reach our customer support team via email at support@fmcgbharat.com or call our helpline at [insert phone number]. We are available from 9 AM to 6 PM, Monday through Saturday.",
+      question: "How do I contact customer support?",
+    },
+    {
+      answer:
+        "Simply browse our product categories, add items to your cart, and proceed to checkout. You will need to provide your shipping address and payment details to complete the purchase.",
+      question: "How do I place an order on FMCG Bharat?",
+    },
   ];
   return (
-    <div className="">
+    <>
+      {/* navigation bar */}
       <Navbar />
 
       {/* hero section of the page */}
-      <Main
-        href="#aboutContainer"
-        link="read about us"
-        src="https://res.cloudinary.com/dblq992uw/image/upload/v1729161502/Public/hero-images/about-main_s3penp.png"
-        paragraph=" At FMCG Bharat, we are dedicated to bringing you the best
+      <Reveal>
+        <Main
+          href="#aboutContainer"
+          link="read about us"
+          src="https://res.cloudinary.com/dblq992uw/image/upload/v1729161502/Public/hero-images/about-main_s3penp.png"
+          paragraph=" At FMCG Bharat, we are dedicated to bringing you the best
         fast-moving consumer goods from across the country. Our mission is
         to simplify online shopping by offering a wide range of high-quality
         products at affordable prices."
-        key={key}
-      >
-        <span>more on</span>
-        <span className="text-yellow-500">fmcg bharat</span>
-      </Main>
+          key={key}
+        >
+          <span>more on</span>
+          <span className="text-yellow-500">FMCG Bharat</span>
+        </Main>
+      </Reveal>
 
-      {/* 1st section */}
-      {/* features of fmcg bharat */}
       <BasicLayout id="aboutContainer" paddingTop={false}>
-        <SectionWrapper heading="here's features of fmcg bharat.">
-          {basicInfoCard.map((value, index: number) => {
-            const { heading, src, alt, paragraph } = value;
-            return (
-              <BasiCard
-                heading={heading}
-                paragraph={paragraph}
-                key={index}
-                src={src}
-                alt={alt}
-              />
-            );
-          })}
-        </SectionWrapper>
-      </BasicLayout>
+        <Reveal>
+          {/* 1st section */}
+          {/* features of fmcg bharat */}
+          <SectionWrapper heading="here's features of fmcg bharat.">
+            {basicInfoCard.map((value, index: number) => {
+              const { heading, src, alt, paragraph } = value;
+              return (
+                <BasiCard
+                  heading={heading}
+                  paragraph={paragraph}
+                  key={index}
+                  src={src}
+                  alt={alt}
+                />
+              );
+            })}
+          </SectionWrapper>
+        </Reveal>
 
-      {/* 2nd section */}
-      {/* how to fmcg bharat */}
-      <BasicLayout paddingTop={false}>
-        <SectionWrapper heading="how to purchase products">
-          {basicImageInfoCard.map((value, index: number) => {
-            const { alt, heading, paragraph, src, href, link, className } =
-              value;
-            return (
-              <BasiCard
-                heading={heading}
-                paragraph={paragraph}
-                key={index}
-                alt={alt}
-                src={src}
-                href={href}
-                link={link}
-                className={className}
-              />
-            );
-          })}
-        </SectionWrapper>
-      </BasicLayout>
+        <Reveal>
+          {/* 2nd section */}
+          {/* how to fmcg bharat */}
+          <SectionWrapper heading="how to purchase products">
+            {basicImageInfoCard.map((value, index: number) => {
+              const { alt, heading, paragraph, src, href, link, className } =
+                value;
+              return (
+                <BasiCard
+                  heading={heading}
+                  paragraph={paragraph}
+                  key={index}
+                  alt={alt}
+                  src={src}
+                  href={href}
+                  link={link}
+                  className={className}
+                />
+              );
+            })}
+          </SectionWrapper>
+        </Reveal>
 
-      {/* 3rd section */}
-      {/* categories */}
-      <BasicLayout paddingTop={false}>
-        <SectionWrapper heading="explore a wide range of products">
-          <div className="grid grid-cols-autofit-3 lg:grid-cols-3 w-full justify-center items-center gap-8 sm:gap-16 px-2 sm:px-16">
-            {basicCategoryCard.map(
-              (value: BasicCategoryCardDetails, index: number) => {
-                const { heading, href, categories } = value;
-                return (
-                  <BasicCategoryCard
-                    heading={heading}
-                    href={href}
-                    categories={categories}
-                    key={index}
-                  />
-                );
-              }
-            )}
-          </div>
-        </SectionWrapper>
-      </BasicLayout>
+        <Reveal>
+          {/* 3rd section */}
+          {/* categories */}
+          <SectionWrapper heading="explore a wide range of products">
+            <div className="grid grid-cols-autofit-3 lg:grid-cols-3 w-full justify-center items-center gap-8 sm:gap-16 px-2 sm:px-16">
+              {basicCategoryCard.map(
+                (value: BasicCategoryCardDetails, index: number) => {
+                  const { heading, href, categories } = value;
+                  return (
+                    <BasicCategoryCard
+                      heading={heading}
+                      href={href}
+                      categories={categories}
+                      key={index}
+                    />
+                  );
+                }
+              )}
+            </div>
+          </SectionWrapper>
+        </Reveal>
 
-      {/* 4th section */}
-      {/* faq fmcbharat */}
-      <BasicLayout paddingTop={false}>
-        <SectionWrapper heading="got questions? we've got answers.">
-          {basicFaqCard.map((value, index: number) => {
-            const { heading, answer, question } = value;
-            return (
-              <BasicFaqCard
-                heading={heading}
-                key={index}
-                question={question}
-                answer={answer}
-              />
-            );
-          })}
-        </SectionWrapper>
+        <Reveal>
+          {/* 4th section */}
+          {/* faq fmcbharat */}
+          <SectionWrapper heading="got questions? we've got answers.">
+            {basicFaqCard.map((value, index: number) => {
+              const { heading, answer, question } = value;
+              return (
+                <BasicFaqCard
+                  heading={heading}
+                  key={index}
+                  question={question}
+                  answer={answer}
+                />
+              );
+            })}
+          </SectionWrapper>
+        </Reveal>
       </BasicLayout>
-    </div>
+    </>
   );
 }
 

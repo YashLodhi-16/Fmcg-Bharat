@@ -3,7 +3,7 @@ import React from "react";
 import { useSearchParams } from "next/navigation";
 import OthersMain from "@/components/tsx/OthersMain";
 import ProductsPageContentWrapper from "@/components/tsx/ProductsPageContentWrapper";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 
 // page - Products
 const Products = ({ searchParams }: { searchParams: { search?: string } }) => {

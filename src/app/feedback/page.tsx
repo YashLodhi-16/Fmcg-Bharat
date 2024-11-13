@@ -11,7 +11,7 @@ import { Page } from "@/lib/interfaces/Form";
 import { useMemo } from "react";
 import FormMain from "@/components/tsx/FormMain";
 import MainForm from "@/components/tsx/MainForm";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 
 // page - Feedback
 export default function Feedback() {

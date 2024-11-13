@@ -16,7 +16,7 @@ const BasicLayout = (props: Props) => {
   return (
     // adding extra class if need
     <section
-      className={` px-6 py-16 sm:py-16 sm:px-12  lg:px-16 md:py-24 grid gap-8 ${
+      className={` px-6 py-16 sm:py-16 sm:px-12  lg:px-16 md:py-24 grid gap-16 md:gap-24 ${
         paddingTop ? "" : "!pt-0"
       } ${className}`}
       id={id}

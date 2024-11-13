@@ -10,7 +10,7 @@ import {
   titleConcatinate,
 } from "@/lib/utilities/variables";
 import titleName from "@/lib/utilities/titleName";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 
 // page - Brands
 export default function Brands() {

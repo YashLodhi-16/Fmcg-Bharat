@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { products } from "@/lib/utilities/routes";
 import ProductsWrapper from "@/components/tsx/ProductsWrapper";
 import Filter from "@/components/tsx/Filter";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 export default async function Page({
   params,
 }: {
@@ -36,7 +36,6 @@ export default async function Page({
       );
     } else {
       const [, subCategory, underCategory] = slug;
-      console.log("hello", idOrMainCategory);
       return (
         <>
           <Navbar />

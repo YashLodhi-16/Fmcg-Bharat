@@ -1,7 +1,7 @@
 // all imports
 import LegalContainer from "@/components/tsx/LegalContainer";
 import Main from "@/components/tsx/Main";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 import TermsAndConditions from "@/components/tsx/TermsAndConditions";
 import { termsAndConditions } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";

@@ -15,7 +15,7 @@ import { BaseProduct } from "@/lib/interfaces/Product";
 import ProductCard from "@/components/tsx/ProductCard";
 import CardsHolder from "@/components/tsx/CardsHolder";
 import ProductsWrapper from "@/components/tsx/ProductsWrapper";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 
 // page - home
 export default async function Home() {

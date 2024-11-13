@@ -11,7 +11,7 @@ import { contact } from "@/lib/utilities/routes";
 import titleName from "@/lib/utilities/titleName";
 import MainForm from "@/components/tsx/MainForm";
 import { Page } from "@/lib/interfaces/Form";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 
 // page - Contact
 export default function Contact() {

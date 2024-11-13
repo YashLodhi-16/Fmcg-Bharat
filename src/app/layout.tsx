@@ -1,8 +1,8 @@
 // all imports
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/tsx/Navbar";
-import Footer from "@/components/tsx/Footer";
+import Navbar from "@/components/tsx/common/Navbar";
+import Footer from "@/components/tsx/common/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { environment, title } from "@/lib/utilities/variables";
@@ -60,8 +60,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="capitalize bg-gray-50 relative scroll-smooth h-svh md:h-vh">
+    <html lang="en" className="scroll-smooth">
+      <body className="capitalize bg-gray-50 relative">
         {/* navbar and footer  */}
         {/* are the most important component for every page so i add them to layout directly.
          */}

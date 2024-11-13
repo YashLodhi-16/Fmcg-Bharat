@@ -7,7 +7,7 @@ import { RootState } from "@/lib/store/store";
 import { useSelector, useDispatch } from "react-redux";
 import fetchData from "@/lib/utilities/fetchData";
 import { clearCart } from "@/lib/store/features/cartProducts/cartProductSlice";
-import Navbar from "@/components/tsx/Navbar";
+import Navbar from "@/components/tsx/common/Navbar";
 
 export const dynamic = "force-dynamic";
 

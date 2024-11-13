@@ -29,7 +29,7 @@ const config: Config = {
       },
       animation: {
         "glow-btn": "glow-btn 1s ease-in-out infinite",
-        "phone-ringing": "phone-ringing .2s ease-in-out infinite alternate",
+        appear: "appear linear",
       },
       keyframes: {
         "glow-btn": {
@@ -43,12 +43,14 @@ const config: Config = {
             "background-position": "0% 50%",
           },
         },
-        "phone-ringing": {
-          "0%": {
-            rotate: "10deg",
+        appear: {
+          from: {
+            opacity: "0",
+            scale: ".5",
           },
-          "100%": {
-            rotate: "-10deg",
+          to: {
+            opacity: "1",
+            scale: "1",
           },
         },
       },

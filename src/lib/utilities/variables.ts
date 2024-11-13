@@ -2,7 +2,7 @@
 //   throw new Error("Please provide API URL");
 // }
 export const legalId = "legalContainer",
-  title = "Fmcg Bharat",
+  title = "FMCG Bharat",
   titleConcatinate = " | ",
   cartProducts = "cartProducts",
   environment =
