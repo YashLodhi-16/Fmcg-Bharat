@@ -61,6 +61,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-8532068934518579" />
+      </head>
       <body className="capitalize bg-gray-50 relative">
         {/* navbar and footer  */}
         {/* are the most important component for every page so i add them to layout directly.

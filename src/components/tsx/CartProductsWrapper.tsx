@@ -10,6 +10,7 @@ import { Product } from "@/lib/interfaces/Product";
 import Model from "@/components/tsx/Model";
 import BasicLayout from "./BasicLayout";
 import { clearCart } from "@/lib/store/features/cartProducts/cartProductSlice";
+import RazorpayButton from "./RazorPayButton";
 
 const CartProductsWrapper = () => {
   // state in redux
@@ -129,13 +130,15 @@ const CartProductsWrapper = () => {
             >
               products
             </button>
-            <span className="mx-2">{">"}</span>
-            <button
-              onClick={() => setModel(true)}
-              className={`capitalize ${model ? "font-bold" : ""}`}
-            >
-              fill details
-            </button>
+            {
+              //  <span className="mx-2">{">"}</span>
+              // <button
+              // onClick={() => setModel(true)}
+              // className={`capitalize ${model ? "font-bold" : ""}`}
+              // >
+              //   fill details
+              // </button>
+            }
             <button
               className="  text-white   capitalize font-semibold ml-auto"
               onClick={() => dispatch(clearCart())}
@@ -207,12 +210,7 @@ const CartProductsWrapper = () => {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <button
-                  className="bg-[#0071dc] w-full text-white px-4 py-2 font-semibold rounded-full  hover:scale-90 transition duration-300 ease-in-out hover:shadow-xl"
-                  onClick={() => setModel(true)}
-                >
-                  Continue to checkout
-                </button>
+                <RazorpayButton></RazorpayButton>
               </div>
 
               <div>
